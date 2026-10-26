@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Alerts{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+  <h1 class="h3 mb-0">Alerts <span class="text-body-secondary fs-6">{{ alerts | length }} shown</span></h1>
+  <div class="d-flex gap-2">
+    <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('ui.export_alerts', **query_args) }}">Export CSV</a>
+  </div>
+</div>
+
+<form class="card siem-card mb-3" method="get" action="{{ url_for('ui.alerts') }}">
+  <div class="card-body row g-2 align-items-end">
+    <div class="col-6 col-md-3">
+      <label class="form-label small" for="a-sev">Severity</label>
+      <select class="form-select form-select-sm" id="a-sev" name="severity" data-autosubmit>
+        <option value="">Any</option>
+        {% for s in severities | reverse %}<option value="{{ s }}" {% if filters.severity == s %}selected{% endif %}>{{ s }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-3">
+      <label class="form-label small" for="a-status">Status</label>
+      <select class="form-select form-select-sm" id="a-status" name="status" data-autosubmit>
+        <option value="">Any</option>
+        {% for s in statuses %}<option value="{{ s }}" {% if filters.status == s %}selected{% endif %}>{{ status_labels[s] }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-3">
+      <label class="form-label small" for="a-rule">Rule</label>
+      <select class="form-select form-select-sm" id="a-rule" name="rule_id" data-autosubmit>
+        <option value="">Any</option>
+        {% for r in rules %}<option value="{{ r.id }}" {% if filters.rule_id == r.id %}selected{% endif %}>{{ r.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-2">
+      <label class="form-label small" for="a-ip">Source IP</label>
+      <input class="form-control form-control-sm mono" id="a-ip" name="source_ip" value="{{ filters.source_ip }}">
+    </div>
+    <div class="col-md-1 d-grid"><button class="btn btn-sm btn-primary" type="submit">Filter</button></div>
+  </div>
+</form>
+
+<div class="card siem-card">
+  <div class="table-responsive">
+    <table class="table table-hover mb-0 align-middle">
+      <thead><tr><th>Severity</th><th>Alert</th><th>Entity</th><th>First seen (UTC)</th><th>Last seen (UTC)</th>
+        <th class="text-end">Events</th><th>MITRE ATT&amp;CK</th><th>Status</th></tr></thead>
+      <tbody>
+      {% for a in alerts %}
+        <tr class="{% if a.status in ('resolved', 'false_positive') %}text-body-secondary{% endif %}">
+          <td><span class="badge sev-badge text-bg-{{ a.severity | sev_class }}">{{ a.severity }}</span></td>
+          <td><a href="{{ url_for('ui.alert_detail', alert_id=a.id) }}" class="fw-semibold">{{ a.title }}</a>
+            <div class="small text-body-secondary">{{ a.rule_name }}</div></td>
+          <td class="small"><span class="mono">{{ a.source_ip or '' }}</span>{% if a.username %}<div>user: {{ a.username }}</div>{% endif %}</td>
+          <td class="mono small text-nowrap">{{ a.first_seen }}</td>
+          <td class="mono small text-nowrap">{{ a.last_seen }}</td>
+          <td class="text-end">{{ a.event_count }}</td>
+          <td class="small">{{ a.mitre_technique }}</td>
+          <td><span class="badge status-badge status-{{ a.status }}">{{ status_labels[a.status] }}</span></td>
+        </tr>
+      {% else %}
+        <tr><td colspan="8" class="text-center text-body-secondary py-4">
+          No alerts. <a href="{{ url_for('ui.upload') }}">Ingest some logs</a> and run detection.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+/* Mini-SIEM theme: a calm, dark SOC console on top of Bootstrap 5.3's dark mode. */
+:root,
+[data-bs-theme="dark"] {
+  --bs-body-bg: #0e1116;
+  --bs-body-color: #d7dce2;
+  --bs-secondary-color: #8b94a1;
+  --bs-border-color: #232a33;
+  --bs-body-font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --bs-link-color-rgb: 110, 168, 254;
+  --bs-link-hover-color-rgb: 158, 197, 254;
+  --siem-card: #151a21;
+  --siem-card-header: #11161c;
+  --siem-grid: rgba(255, 255, 255, 0.07);
+  --siem-accent: #3e9bff;
+  --mono: "Cascadia Mono", "JetBrains Mono", Consolas, "SFMono-Regular", Menlo, monospace;
+}
+
+body { background: var(--bs-body-bg); }
+
+.mono, code, .raw-log { font-family: var(--mono); font-size: 0.82rem; }
+
+/* Navigation */
+.siem-nav { background: #0a0d11; }
+.siem-nav .nav-link { color: var(--bs-secondary-color); }
+.siem-nav .nav-link:hover,
+.siem-nav .nav-link.active { color: #fff; }
+.siem-nav .nav-link.active { box-shadow: inset 0 -2px 0 var(--siem-accent); }
+.brand-mark {
+  width: 22px; height: 22px; border-radius: 6px; display: inline-block;
+  background: conic-gradient(from 210deg, #3e9bff, #30a46c, #f5a524, #e5484d, #3e9bff);
+  box-shadow: 0 0 0 3px rgba(62, 155, 255, 0.15);
+}
+
+/* Cards */
+.siem-card { background: var(--siem-card); border-color: var(--bs-border-color); }
+.siem-card > .card-header {
+  background: var(--siem-card-header); border-bottom-color: var(--bs-border-color);
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; color: #c3cad3;
+}
+.siem-card > .card-footer { background: var(--siem-card-header); border-top-color: var(--bs-border-color); }
+.siem-card .table { --bs-table-bg: transparent; margin-bottom: 0; }
+.siem-card .table > :not(caption) > * > * { border-bottom-color: var(--bs-border-color); }
+.siem-card thead th {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--bs-secondary-color); font-weight: 600; white-space: nowrap;
+}
+
+/* KPIs */
+.kpi-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-secondary-color); }
+.kpi-value { font-size: 1.9rem; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.kpi-danger { border-color: rgba(229, 72, 77, 0.45); }
+.kpi-danger .kpi-value { color: #ff8589; }
+
+/* Charts */
+.chart-box { position: relative; height: 240px; }
+.chart-tall { height: 300px; }
+
+/* Badges */
+.sev-badge { text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.68rem; min-width: 4.6rem; }
+.sev-lg { font-size: 0.85rem; padding: 0.5em 0.8em; }
+.status-badge { font-weight: 500; }
+.status-open { background: rgba(229, 72, 77, 0.18); color: #ff8589; }
+.status-investigating { background: rgba(245, 165, 36, 0.18); color: #ffc53d; }
+.status-resolved { background: rgba(48, 164, 108, 0.18); color: #3dd68c; }
+.status-false_positive { background: rgba(139, 148, 161, 0.2); color: #b0b7c1; }
+.type-badge { font-weight: 500; background: #222a35; color: #c3cad3; }
+.type-auth_failure { background: rgba(229, 72, 77, 0.18); color: #ff8589; }
+.type-auth_success { background: rgba(48, 164, 108, 0.18); color: #3dd68c; }
+.type-web_request { background: rgba(62, 155, 255, 0.16); color: #8ec5ff; }
+.kv-badge { background: #1d242d; color: #c3cad3; font-weight: 400; margin: 0 0.15rem 0.25rem 0; }
+.kv-badge b { color: #fff; margin-left: 0.25rem; }
+
+/* Tables */
+.events-table td { vertical-align: top; }
+.ua-cell { max-width: 220px; }
+.raw-log { white-space: pre-wrap; word-break: break-all; color: #aeb6c1; }
+details > summary { cursor: pointer; }
+.evidence-scroll { max-height: 520px; overflow-y: auto; }
+
+/* Rules page */
+.rule-number {
+  width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(62, 155, 255, 0.15); color: #8ec5ff; font-weight: 600; font-size: 0.85rem;
+}
+.rule-toggle .form-check { margin: 0; }
+.sticky-actions { position: sticky; bottom: 0; background: linear-gradient(transparent, var(--bs-body-bg) 35%); }
+
+.error-card { max-width: 520px; }
+
+/* Links inside cards and tables: underline only on hover */
+.siem-card a, .breadcrumb a { text-decoration: none; }
+.siem-card a:hover, .breadcrumb a:hover { text-decoration: underline; }

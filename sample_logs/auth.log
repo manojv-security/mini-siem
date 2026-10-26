@@ -1,0 +1,399 @@
+Oct 25 00:17:00 web01 CRON[3593]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 00:17:01 web01 CRON[3594]: pam_unix(cron:session): session closed for user root
+Oct 25 01:17:00 web01 CRON[3599]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 01:17:01 web01 CRON[3603]: pam_unix(cron:session): session closed for user root
+Oct 25 02:10:03 web01 sshd[3808]: Failed password for root from 203.0.113.15 port 55539 ssh2
+Oct 25 02:10:10 web01 sshd[3813]: Invalid user admin from 203.0.113.15 port 39374
+Oct 25 02:10:10 web01 sshd[3818]: Failed password for invalid user admin from 203.0.113.15 port 39374 ssh2
+Oct 25 02:10:18 web01 sshd[3824]: Invalid user test from 203.0.113.15 port 46088
+Oct 25 02:10:18 web01 sshd[3829]: Failed password for invalid user test from 203.0.113.15 port 46088 ssh2
+Oct 25 02:10:27 web01 sshd[3831]: Invalid user oracle from 203.0.113.15 port 55863
+Oct 25 02:10:27 web01 sshd[3836]: Failed password for invalid user oracle from 203.0.113.15 port 55863 ssh2
+Oct 25 02:10:33 web01 sshd[3840]: Invalid user postgres from 203.0.113.15 port 32036
+Oct 25 02:10:33 web01 sshd[3842]: Failed password for invalid user postgres from 203.0.113.15 port 32036 ssh2
+Oct 25 02:10:41 web01 sshd[3848]: Failed password for ubuntu from 203.0.113.15 port 35202 ssh2
+Oct 25 02:10:42 web01 sshd[3854]: Connection closed by authenticating user ubuntu 203.0.113.15 port 35202 [preauth]
+Oct 25 02:10:48 web01 sshd[3856]: Invalid user guest from 203.0.113.15 port 32593
+Oct 25 02:10:48 web01 sshd[3860]: Failed password for invalid user guest from 203.0.113.15 port 32593 ssh2
+Oct 25 02:10:56 web01 sshd[3863]: Invalid user user from 203.0.113.15 port 59541
+Oct 25 02:10:56 web01 sshd[3866]: Failed password for invalid user user from 203.0.113.15 port 59541 ssh2
+Oct 25 02:11:07 web01 sshd[3870]: Invalid user ftp from 203.0.113.15 port 53058
+Oct 25 02:11:07 web01 sshd[3873]: Failed password for invalid user ftp from 203.0.113.15 port 53058 ssh2
+Oct 25 02:11:14 web01 sshd[3879]: Invalid user git from 203.0.113.15 port 34500
+Oct 25 02:11:14 web01 sshd[3882]: Failed password for invalid user git from 203.0.113.15 port 34500 ssh2
+Oct 25 02:11:23 web01 sshd[3883]: Failed password for root from 203.0.113.15 port 43380 ssh2
+Oct 25 02:11:31 web01 sshd[3889]: Invalid user admin from 203.0.113.15 port 56819
+Oct 25 02:11:31 web01 sshd[3896]: Failed password for invalid user admin from 203.0.113.15 port 56819 ssh2
+Oct 25 02:11:32 web01 sshd[3897]: Connection closed by authenticating user admin 203.0.113.15 port 56819 [preauth]
+Oct 25 02:11:39 web01 sshd[3904]: Invalid user test from 203.0.113.15 port 59036
+Oct 25 02:11:39 web01 sshd[3907]: Failed password for invalid user test from 203.0.113.15 port 59036 ssh2
+Oct 25 02:11:47 web01 sshd[3913]: Invalid user oracle from 203.0.113.15 port 35099
+Oct 25 02:11:47 web01 sshd[3919]: Failed password for invalid user oracle from 203.0.113.15 port 35099 ssh2
+Oct 25 02:11:54 web01 sshd[3922]: Invalid user postgres from 203.0.113.15 port 56757
+Oct 25 02:11:54 web01 sshd[3924]: Failed password for invalid user postgres from 203.0.113.15 port 56757 ssh2
+Oct 25 02:12:02 web01 sshd[3926]: Failed password for ubuntu from 203.0.113.15 port 45107 ssh2
+Oct 25 02:12:11 web01 sshd[3930]: Invalid user guest from 203.0.113.15 port 48026
+Oct 25 02:12:11 web01 sshd[3936]: Failed password for invalid user guest from 203.0.113.15 port 48026 ssh2
+Oct 25 02:12:18 web01 sshd[3940]: Invalid user user from 203.0.113.15 port 45377
+Oct 25 02:12:18 web01 sshd[3945]: Failed password for invalid user user from 203.0.113.15 port 45377 ssh2
+Oct 25 02:12:19 web01 sshd[3950]: Connection closed by authenticating user user 203.0.113.15 port 45377 [preauth]
+Oct 25 02:12:26 web01 sshd[3954]: Invalid user ftp from 203.0.113.15 port 30461
+Oct 25 02:12:26 web01 sshd[3955]: Failed password for invalid user ftp from 203.0.113.15 port 30461 ssh2
+Oct 25 02:12:34 web01 sshd[3958]: Invalid user git from 203.0.113.15 port 43650
+Oct 25 02:12:34 web01 sshd[3962]: Failed password for invalid user git from 203.0.113.15 port 43650 ssh2
+Oct 25 02:12:43 web01 sshd[3969]: Failed password for root from 203.0.113.15 port 45012 ssh2
+Oct 25 02:12:48 web01 sshd[3970]: Invalid user admin from 203.0.113.15 port 44220
+Oct 25 02:12:48 web01 sshd[3972]: Failed password for invalid user admin from 203.0.113.15 port 44220 ssh2
+Oct 25 02:12:59 web01 sshd[3977]: Invalid user test from 203.0.113.15 port 35018
+Oct 25 02:12:59 web01 sshd[3980]: Failed password for invalid user test from 203.0.113.15 port 35018 ssh2
+Oct 25 02:13:05 web01 sshd[3985]: Invalid user oracle from 203.0.113.15 port 43070
+Oct 25 02:13:05 web01 sshd[3986]: Failed password for invalid user oracle from 203.0.113.15 port 43070 ssh2
+Oct 25 02:13:06 web01 sshd[3993]: Connection closed by authenticating user oracle 203.0.113.15 port 43070 [preauth]
+Oct 25 02:13:13 web01 sshd[4000]: Invalid user postgres from 203.0.113.15 port 46798
+Oct 25 02:13:13 web01 sshd[4002]: Failed password for invalid user postgres from 203.0.113.15 port 46798 ssh2
+Oct 25 02:13:23 web01 sshd[4008]: Failed password for ubuntu from 203.0.113.15 port 52512 ssh2
+Oct 25 02:13:28 web01 sshd[4014]: Invalid user guest from 203.0.113.15 port 53181
+Oct 25 02:13:28 web01 sshd[4021]: Failed password for invalid user guest from 203.0.113.15 port 53181 ssh2
+Oct 25 02:13:39 web01 sshd[4022]: Invalid user user from 203.0.113.15 port 38426
+Oct 25 02:13:39 web01 sshd[4026]: Failed password for invalid user user from 203.0.113.15 port 38426 ssh2
+Oct 25 02:13:44 web01 sshd[4029]: Invalid user ftp from 203.0.113.15 port 30042
+Oct 25 02:13:44 web01 sshd[4031]: Failed password for invalid user ftp from 203.0.113.15 port 30042 ssh2
+Oct 25 02:13:55 web01 sshd[4037]: Invalid user git from 203.0.113.15 port 32442
+Oct 25 02:13:55 web01 sshd[4042]: Failed password for invalid user git from 203.0.113.15 port 32442 ssh2
+Oct 25 02:13:56 web01 sshd[4046]: Connection closed by authenticating user git 203.0.113.15 port 32442 [preauth]
+Oct 25 02:14:00 web01 sshd[4050]: Failed password for root from 203.0.113.15 port 40967 ssh2
+Oct 25 02:14:11 web01 sshd[4055]: Invalid user admin from 203.0.113.15 port 47784
+Oct 25 02:14:11 web01 sshd[4056]: Failed password for invalid user admin from 203.0.113.15 port 47784 ssh2
+Oct 25 02:14:17 web01 sshd[4062]: Invalid user test from 203.0.113.15 port 32433
+Oct 25 02:14:17 web01 sshd[4069]: Failed password for invalid user test from 203.0.113.15 port 32433 ssh2
+Oct 25 02:14:27 web01 sshd[4072]: Invalid user oracle from 203.0.113.15 port 42386
+Oct 25 02:14:27 web01 sshd[4076]: Failed password for invalid user oracle from 203.0.113.15 port 42386 ssh2
+Oct 25 02:14:34 web01 sshd[4077]: Invalid user postgres from 203.0.113.15 port 50839
+Oct 25 02:14:34 web01 sshd[4079]: Failed password for invalid user postgres from 203.0.113.15 port 50839 ssh2
+Oct 25 02:14:43 web01 sshd[4084]: Failed password for ubuntu from 203.0.113.15 port 49091 ssh2
+Oct 25 02:14:44 web01 sshd[4086]: Connection closed by authenticating user ubuntu 203.0.113.15 port 49091 [preauth]
+Oct 25 02:14:48 web01 sshd[4088]: Invalid user guest from 203.0.113.15 port 58839
+Oct 25 02:14:48 web01 sshd[4095]: Failed password for invalid user guest from 203.0.113.15 port 58839 ssh2
+Oct 25 02:14:58 web01 sshd[4100]: Invalid user user from 203.0.113.15 port 34375
+Oct 25 02:14:58 web01 sshd[4106]: Failed password for invalid user user from 203.0.113.15 port 34375 ssh2
+Oct 25 02:15:06 web01 sshd[4109]: Invalid user ftp from 203.0.113.15 port 37806
+Oct 25 02:15:06 web01 sshd[4115]: Failed password for invalid user ftp from 203.0.113.15 port 37806 ssh2
+Oct 25 02:15:14 web01 sshd[4122]: Invalid user git from 203.0.113.15 port 32726
+Oct 25 02:15:14 web01 sshd[4126]: Failed password for invalid user git from 203.0.113.15 port 32726 ssh2
+Oct 25 02:15:20 web01 sshd[4131]: Failed password for root from 203.0.113.15 port 32776 ssh2
+Oct 25 02:15:28 web01 sshd[4136]: Invalid user admin from 203.0.113.15 port 50211
+Oct 25 02:15:28 web01 sshd[4142]: Failed password for invalid user admin from 203.0.113.15 port 50211 ssh2
+Oct 25 02:15:29 web01 sshd[4145]: Connection closed by authenticating user admin 203.0.113.15 port 50211 [preauth]
+Oct 25 02:15:36 web01 sshd[4149]: Invalid user test from 203.0.113.15 port 47114
+Oct 25 02:15:36 web01 sshd[4150]: Failed password for invalid user test from 203.0.113.15 port 47114 ssh2
+Oct 25 02:15:44 web01 sshd[4151]: Invalid user oracle from 203.0.113.15 port 45442
+Oct 25 02:15:44 web01 sshd[4157]: Failed password for invalid user oracle from 203.0.113.15 port 45442 ssh2
+Oct 25 02:15:55 web01 sshd[4164]: Invalid user postgres from 203.0.113.15 port 45921
+Oct 25 02:15:55 web01 sshd[4165]: Failed password for invalid user postgres from 203.0.113.15 port 45921 ssh2
+Oct 25 02:16:02 web01 sshd[4166]: Failed password for ubuntu from 203.0.113.15 port 35588 ssh2
+Oct 25 02:16:11 web01 sshd[4172]: Invalid user guest from 203.0.113.15 port 45313
+Oct 25 02:16:11 web01 sshd[4173]: Failed password for invalid user guest from 203.0.113.15 port 45313 ssh2
+Oct 25 02:16:16 web01 sshd[4180]: Invalid user user from 203.0.113.15 port 45443
+Oct 25 02:16:16 web01 sshd[4183]: Failed password for invalid user user from 203.0.113.15 port 45443 ssh2
+Oct 25 02:16:17 web01 sshd[4184]: Connection closed by authenticating user user 203.0.113.15 port 45443 [preauth]
+Oct 25 02:16:26 web01 sshd[4186]: Invalid user ftp from 203.0.113.15 port 37408
+Oct 25 02:16:26 web01 sshd[4190]: Failed password for invalid user ftp from 203.0.113.15 port 37408 ssh2
+Oct 25 02:16:34 web01 sshd[4194]: Invalid user git from 203.0.113.15 port 53986
+Oct 25 02:16:34 web01 sshd[4199]: Failed password for invalid user git from 203.0.113.15 port 53986 ssh2
+Oct 25 02:16:43 web01 sshd[4205]: Failed password for root from 203.0.113.15 port 44844 ssh2
+Oct 25 02:16:49 web01 sshd[4208]: Invalid user admin from 203.0.113.15 port 51237
+Oct 25 02:16:49 web01 sshd[4212]: Failed password for invalid user admin from 203.0.113.15 port 51237 ssh2
+Oct 25 02:16:56 web01 sshd[4213]: Invalid user test from 203.0.113.15 port 51944
+Oct 25 02:16:56 web01 sshd[4216]: Failed password for invalid user test from 203.0.113.15 port 51944 ssh2
+Oct 25 02:17:00 web01 CRON[3606]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 02:17:01 web01 CRON[3609]: pam_unix(cron:session): session closed for user root
+Oct 25 02:17:04 web01 sshd[4217]: Invalid user oracle from 203.0.113.15 port 33001
+Oct 25 02:17:04 web01 sshd[4224]: Failed password for invalid user oracle from 203.0.113.15 port 33001 ssh2
+Oct 25 02:17:05 web01 sshd[4229]: Connection closed by authenticating user oracle 203.0.113.15 port 33001 [preauth]
+Oct 25 02:17:12 web01 sshd[4235]: Invalid user postgres from 203.0.113.15 port 31679
+Oct 25 02:17:12 web01 sshd[4239]: Failed password for invalid user postgres from 203.0.113.15 port 31679 ssh2
+Oct 25 02:17:20 web01 sshd[4240]: Failed password for ubuntu from 203.0.113.15 port 56713 ssh2
+Oct 25 02:17:31 web01 sshd[4246]: Invalid user guest from 203.0.113.15 port 48195
+Oct 25 02:17:31 web01 sshd[4249]: Failed password for invalid user guest from 203.0.113.15 port 48195 ssh2
+Oct 25 02:17:36 web01 sshd[4251]: Invalid user user from 203.0.113.15 port 53806
+Oct 25 02:17:36 web01 sshd[4252]: Failed password for invalid user user from 203.0.113.15 port 53806 ssh2
+Oct 25 02:17:46 web01 sshd[4254]: Invalid user ftp from 203.0.113.15 port 31575
+Oct 25 02:17:46 web01 sshd[4257]: Failed password for invalid user ftp from 203.0.113.15 port 31575 ssh2
+Oct 25 02:17:54 web01 sshd[4261]: Invalid user git from 203.0.113.15 port 48525
+Oct 25 02:17:54 web01 sshd[4263]: Failed password for invalid user git from 203.0.113.15 port 48525 ssh2
+Oct 25 02:17:55 web01 sshd[4269]: Connection closed by authenticating user git 203.0.113.15 port 48525 [preauth]
+Oct 25 02:18:01 web01 sshd[4275]: Failed password for root from 203.0.113.15 port 53046 ssh2
+Oct 25 02:18:09 web01 sshd[4276]: Invalid user admin from 203.0.113.15 port 31073
+Oct 25 02:18:09 web01 sshd[4277]: Failed password for invalid user admin from 203.0.113.15 port 31073 ssh2
+Oct 25 02:18:17 web01 sshd[4281]: Invalid user test from 203.0.113.15 port 50319
+Oct 25 02:18:17 web01 sshd[4284]: Failed password for invalid user test from 203.0.113.15 port 50319 ssh2
+Oct 25 02:18:27 web01 sshd[4290]: Invalid user oracle from 203.0.113.15 port 38815
+Oct 25 02:18:27 web01 sshd[4294]: Failed password for invalid user oracle from 203.0.113.15 port 38815 ssh2
+Oct 25 02:18:34 web01 sshd[4296]: Invalid user postgres from 203.0.113.15 port 50971
+Oct 32 25:99:00 web01 sshd[1]: impossible timestamp
+Oct 25 02:18:34 web01 sshd[4303]: Failed password for invalid user postgres from 203.0.113.15 port 50971 ssh2
+Oct 25 02:18:43 web01 sshd[4308]: Failed password for ubuntu from 203.0.113.15 port 40528 ssh2
+Oct 25 02:18:44 web01 sshd[4315]: Connection closed by authenticating user ubuntu 203.0.113.15 port 40528 [preauth]
+Oct 25 02:18:51 web01 sshd[4318]: Invalid user guest from 203.0.113.15 port 54515
+Oct 25 02:18:51 web01 sshd[4321]: Failed password for invalid user guest from 203.0.113.15 port 54515 ssh2
+Oct 25 02:18:57 web01 sshd[4323]: Invalid user user from 203.0.113.15 port 41355
+Oct 25 02:18:57 web01 sshd[4327]: Failed password for invalid user user from 203.0.113.15 port 41355 ssh2
+Oct 25 02:19:06 web01 sshd[4333]: Invalid user ftp from 203.0.113.15 port 51920
+Oct 25 02:19:06 web01 sshd[4335]: Failed password for invalid user ftp from 203.0.113.15 port 51920 ssh2
+Oct 25 02:19:12 web01 sshd[4336]: Invalid user git from 203.0.113.15 port 39217
+Oct 25 02:19:12 web01 sshd[4340]: Failed password for invalid user git from 203.0.113.15 port 39217 ssh2
+Oct 25 02:19:22 web01 sshd[4343]: Failed password for root from 203.0.113.15 port 33702 ssh2
+Oct 25 02:19:29 web01 sshd[4346]: Invalid user admin from 203.0.113.15 port 44444
+Oct 25 02:19:29 web01 sshd[4347]: Failed password for invalid user admin from 203.0.113.15 port 44444 ssh2
+Oct 25 02:19:30 web01 sshd[4354]: Connection closed by authenticating user admin 203.0.113.15 port 44444 [preauth]
+Oct 25 02:19:38 web01 sshd[4356]: Invalid user test from 203.0.113.15 port 33044
+Oct 25 02:19:38 web01 sshd[4358]: Failed password for invalid user test from 203.0.113.15 port 33044 ssh2
+Oct 25 02:19:47 web01 sshd[4363]: Invalid user oracle from 203.0.113.15 port 55591
+Oct 25 02:19:47 web01 sshd[4370]: Failed password for invalid user oracle from 203.0.113.15 port 55591 ssh2
+Oct 25 02:19:53 web01 sshd[4374]: Invalid user postgres from 203.0.113.15 port 58455
+Oct 25 02:19:53 web01 sshd[4381]: Failed password for invalid user postgres from 203.0.113.15 port 58455 ssh2
+Oct 25 02:20:03 web01 sshd[4388]: Failed password for ubuntu from 203.0.113.15 port 56090 ssh2
+Oct 25 02:20:11 web01 sshd[4393]: Invalid user guest from 203.0.113.15 port 54299
+Oct 25 02:20:11 web01 sshd[4400]: Failed password for invalid user guest from 203.0.113.15 port 54299 ssh2
+Oct 25 02:20:19 web01 sshd[4405]: Invalid user user from 203.0.113.15 port 42429
+Oct 25 02:20:19 web01 sshd[4406]: Failed password for invalid user user from 203.0.113.15 port 42429 ssh2
+Oct 25 02:20:20 web01 sshd[4412]: Connection closed by authenticating user user 203.0.113.15 port 42429 [preauth]
+Oct 25 02:20:27 web01 sshd[4413]: Invalid user ftp from 203.0.113.15 port 55137
+Oct 25 02:20:27 web01 sshd[4420]: Failed password for invalid user ftp from 203.0.113.15 port 55137 ssh2
+Oct 25 02:20:34 web01 sshd[4424]: Invalid user git from 203.0.113.15 port 41255
+Oct 25 02:20:34 web01 sshd[4431]: Failed password for invalid user git from 203.0.113.15 port 41255 ssh2
+Oct 25 02:20:40 web01 sshd[4438]: Failed password for root from 203.0.113.15 port 56487 ssh2
+Oct 25 02:20:51 web01 sshd[4443]: Invalid user admin from 203.0.113.15 port 39869
+Oct 25 02:20:51 web01 sshd[4449]: Failed password for invalid user admin from 203.0.113.15 port 39869 ssh2
+Oct 25 02:20:56 web01 sshd[4452]: Invalid user test from 203.0.113.15 port 56212
+Oct 25 02:20:56 web01 sshd[4457]: Failed password for invalid user test from 203.0.113.15 port 56212 ssh2
+Oct 25 02:21:06 web01 sshd[4463]: Invalid user oracle from 203.0.113.15 port 50164
+Oct 25 02:21:06 web01 sshd[4467]: Failed password for invalid user oracle from 203.0.113.15 port 50164 ssh2
+Oct 25 02:21:07 web01 sshd[4472]: Connection closed by authenticating user oracle 203.0.113.15 port 50164 [preauth]
+Oct 25 02:21:12 web01 sshd[4475]: Invalid user postgres from 203.0.113.15 port 39012
+Oct 25 02:21:12 web01 sshd[4480]: Failed password for invalid user postgres from 203.0.113.15 port 39012 ssh2
+Oct 25 02:21:20 web01 sshd[4481]: Failed password for ubuntu from 203.0.113.15 port 46892 ssh2
+Oct 25 02:21:29 web01 sshd[4488]: Invalid user guest from 203.0.113.15 port 56852
+Oct 25 02:21:29 web01 sshd[4491]: Failed password for invalid user guest from 203.0.113.15 port 56852 ssh2
+Oct 25 02:21:39 web01 sshd[4494]: Invalid user user from 203.0.113.15 port 35600
+Oct 25 02:21:39 web01 sshd[4500]: Failed password for invalid user user from 203.0.113.15 port 35600 ssh2
+Oct 25 02:21:44 web01 sshd[4503]: Invalid user ftp from 203.0.113.15 port 52080
+Oct 25 02:21:44 web01 sshd[4507]: Failed password for invalid user ftp from 203.0.113.15 port 52080 ssh2
+Oct 25 02:21:54 web01 sshd[4510]: Invalid user git from 203.0.113.15 port 38700
+Oct 25 02:21:54 web01 sshd[4511]: Failed password for invalid user git from 203.0.113.15 port 38700 ssh2
+Oct 25 02:21:55 web01 sshd[4516]: Connection closed by authenticating user git 203.0.113.15 port 38700 [preauth]
+Oct 25 03:17:00 web01 CRON[3615]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 03:17:01 web01 CRON[3616]: pam_unix(cron:session): session closed for user root
+Oct 25 03:40:00 web01 sshd[4521]: Failed password for deploy from 198.51.100.200 port 50100 ssh2
+Oct 25 03:40:25 web01 sshd[4526]: Failed password for deploy from 198.51.100.200 port 50101 ssh2
+Oct 25 03:40:50 web01 sshd[4531]: Failed password for deploy from 198.51.100.200 port 50102 ssh2
+Oct 25 03:41:15 web01 sshd[4535]: Failed password for deploy from 198.51.100.200 port 50103 ssh2
+Oct 25 03:41:40 web01 sshd[4537]: Failed password for deploy from 198.51.100.200 port 50104 ssh2
+Oct 25 03:42:05 web01 sshd[4539]: Failed password for deploy from 198.51.100.200 port 50105 ssh2
+Oct 25 03:42:50 web01 sshd[4542]: Accepted password for deploy from 198.51.100.200 port 50107 ssh2
+Oct 25 03:42:51 web01 systemd-logind[4545]: New session 666 of user deploy.
+Oct 25 04:17:00 web01 CRON[3620]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 04:17:01 web01 CRON[3621]: pam_unix(cron:session): session closed for user root
+Oct 25 05:17:00 web01 CRON[3625]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 05:17:01 web01 CRON[3632]: pam_unix(cron:session): session closed for user root
+Oct 25 06:07:40 web01 sshd[3177]: Accepted publickey for bob from 10.0.1.34 port 62506 ssh2: ED25519 SHA256:k3yF1ngerPr1nt73
+web01 kernel: this line has no timestamp
+Oct 25 06:07:41 web01 systemd-logind[3178]: New session 499 of user bob.
+Oct 25 06:08:28 web01 sshd[3159]: Accepted publickey for alice from 10.0.1.21 port 56843 ssh2: ED25519 SHA256:k3yF1ngerPr1nt35
+Oct 25 06:08:29 web01 systemd-logind[3163]: New session 569 of user alice.
+Oct 25 06:17:00 web01 CRON[3637]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 06:17:01 web01 CRON[3638]: pam_unix(cron:session): session closed for user root
+Oct 25 06:20:00 web01 sshd[3104]: Accepted publickey for bob from 10.0.1.34 port 63220 ssh2: ED25519 SHA256:k3yF1ngerPr1nt49
+Oct 25 06:20:01 web01 systemd-logind[3108]: New session 439 of user bob.
+Oct 25 06:36:27 web01 sshd[3456]: Accepted publickey for deploy from 10.0.2.15 port 59174 ssh2: ED25519 SHA256:k3yF1ngerPr1nt41
+Oct 25 06:36:28 web01 systemd-logind[3459]: New session 465 of user deploy.
+Oct 25 06:38:37 web01 sshd[3568]: Accepted publickey for ubuntu from 10.0.2.40 port 40957 ssh2: ED25519 SHA256:k3yF1ngerPr1nt76
+Oct 25 06:38:38 web01 systemd-logind[3574]: New session 810 of user ubuntu.
+Oct 25 06:55:52 web01 sshd[3256]: Accepted publickey for bob from 10.0.1.34 port 63323 ssh2: ED25519 SHA256:k3yF1ngerPr1nt82
+Oct 25 06:55:53 web01 systemd-logind[3257]: New session 760 of user bob.
+Oct 25 07:13:37 web01 sshd[3053]: Accepted publickey for ubuntu from 10.0.2.40 port 50141 ssh2: ED25519 SHA256:k3yF1ngerPr1nt26
+Oct 25 07:13:38 web01 systemd-logind[3055]: New session 723 of user ubuntu.
+Oct 25 07:17:00 web01 CRON[3642]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 07:17:01 web01 CRON[3648]: pam_unix(cron:session): session closed for user root
+Oct 25 07:35:51 web01 sshd[3123]: Accepted publickey for alice from 10.0.1.21 port 52748 ssh2: ED25519 SHA256:k3yF1ngerPr1nt10
+Oct 25 07:35:52 web01 systemd-logind[3130]: New session 683 of user alice.
+Oct 25 07:56:50 web01 sshd[3092]: Accepted publickey for alice from 10.0.1.21 port 62302 ssh2: ED25519 SHA256:k3yF1ngerPr1nt34
+Oct 25 07:56:51 web01 systemd-logind[3097]: New session 559 of user alice.
+Oct 25 08:17:00 web01 CRON[3652]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 08:17:01 web01 CRON[3653]: pam_unix(cron:session): session closed for user root
+Oct 25 08:21:53 web01 sshd[3169]: Accepted publickey for alice from 10.0.1.21 port 62007 ssh2: ED25519 SHA256:k3yF1ngerPr1nt74
+Oct 25 08:21:54 web01 systemd-logind[3174]: New session 691 of user alice.
+Oct 25 08:35:58 web01 sshd[3111]: Accepted publickey for ubuntu from 10.0.2.40 port 54488 ssh2: ED25519 SHA256:k3yF1ngerPr1nt42
+Oct 25 08:35:59 web01 systemd-logind[3118]: New session 885 of user ubuntu.
+Oct 25 08:38:57 web01 sshd[3228]: Accepted publickey for deploy from 10.0.2.15 port 56821 ssh2: ED25519 SHA256:k3yF1ngerPr1nt56
+Oct 25 08:38:58 web01 systemd-logind[3233]: New session 758 of user deploy.
+Oct 25 08:48:00 web01 sshd[3509]: Accepted publickey for alice from 10.0.1.21 port 45533 ssh2: ED25519 SHA256:k3yF1ngerPr1nt29
+Oct 25 08:48:01 web01 systemd-logind[3511]: New session 764 of user alice.
+Oct 25 09:00:47 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/nginx/access.log
+Oct 25 09:03:00 web01 sshd[3802]: Failed password for bob from 10.0.1.34 port 51234 ssh2
+Oct 25 09:03:06 web01 sshd[3805]: Accepted password for bob from 10.0.1.34 port 51240 ssh2
+Oct 25 09:17:00 web01 CRON[3659]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 09:17:01 web01 CRON[3660]: pam_unix(cron:session): session closed for user root
+Oct 25 09:18:19 web01 sshd[3023]: Accepted publickey for ubuntu from 10.0.2.40 port 55171 ssh2: ED25519 SHA256:k3yF1ngerPr1nt67
+Oct 25 09:18:20 web01 systemd-logind[3028]: New session 656 of user ubuntu.
+Oct 25 09:26:32 web01 sshd[3397]: Accepted publickey for bob from 10.0.1.34 port 53395 ssh2: ED25519 SHA256:k3yF1ngerPr1nt84
+Oct 25 09:26:33 web01 systemd-logind[3400]: New session 718 of user bob.
+Oct 25 09:28:20 web01 sshd[3391]: Accepted publickey for bob from 10.0.1.34 port 46467 ssh2: ED25519 SHA256:k3yF1ngerPr1nt74
+Oct 25 09:28:21 web01 systemd-logind[3392]: New session 389 of user bob.
+Oct 25 09:40:00 web01 sshd[3152]: Accepted publickey for bob from 10.0.1.34 port 52416 ssh2: ED25519 SHA256:k3yF1ngerPr1nt76
+Oct 25 09:40:01 web01 systemd-logind[3156]: New session 895 of user bob.
+Oct 25 09:50:44 web01 sshd[3217]: Accepted publickey for bob from 10.0.1.34 port 57067 ssh2: ED25519 SHA256:k3yF1ngerPr1nt96
+Oct 25 09:50:45 web01 systemd-logind[3222]: New session 866 of user bob.
+Oct 25 09:51:49 web01 sshd[3534]: Accepted publickey for ubuntu from 10.0.2.40 port 63124 ssh2: ED25519 SHA256:k3yF1ngerPr1nt52
+Oct 25 09:51:50 web01 systemd-logind[3538]: New session 106 of user ubuntu.
+Oct 25 10:04:53 web01 sshd[3420]: Accepted publickey for bob from 10.0.1.34 port 42850 ssh2: ED25519 SHA256:k3yF1ngerPr1nt27
+Oct 25 10:04:54 web01 systemd-logind[3427]: New session 799 of user bob.
+Oct 25 10:13:30 web01 sshd[3552]: Accepted publickey for bob from 10.0.1.34 port 61173 ssh2: ED25519 SHA256:k3yF1ngerPr1nt27
+Oct 25 10:13:31 web01 systemd-logind[3559]: New session 519 of user bob.
+Oct 25 10:17:00 web01 CRON[3663]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 10:17:01 web01 CRON[3669]: pam_unix(cron:session): session closed for user root
+Oct 25 10:19:05 web01 sshd[3260]: Accepted publickey for ubuntu from 10.0.2.40 port 56267 ssh2: ED25519 SHA256:k3yF1ngerPr1nt85
+Oct 25 10:19:06 web01 systemd-logind[3265]: New session 730 of user ubuntu.
+Oct 25 10:19:54 web01 sshd[3035]: Accepted publickey for alice from 10.0.1.21 port 40651 ssh2: ED25519 SHA256:k3yF1ngerPr1nt42
+Oct 25 10:19:55 web01 systemd-logind[3040]: New session 921 of user alice.
+Oct 25 10:31:14 web01 sshd[3522]: Accepted publickey for deploy from 10.0.2.15 port 61993 ssh2: ED25519 SHA256:k3yF1ngerPr1nt10
+Oct 25 10:31:15 web01 systemd-logind[3525]: New session 479 of user deploy.
+Oct 25 10:32:30 web01 sshd[3307]: Accepted publickey for deploy from 10.0.2.15 port 51170 ssh2: ED25519 SHA256:k3yF1ngerPr1nt84
+Oct 25 10:32:31 web01 systemd-logind[3309]: New session 627 of user deploy.
+Oct 25 10:38:43 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/nginx/access.log
+Oct 25 10:40:14 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 25 10:52:33 web01 sshd[3446]: Accepted publickey for bob from 10.0.1.34 port 55796 ssh2: ED25519 SHA256:k3yF1ngerPr1nt72
+Oct 25 10:52:34 web01 systemd-logind[3450]: New session 399 of user bob.
+Oct 25 11:09:19 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Oct 25 11:17:00 web01 CRON[3670]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 11:17:01 web01 CRON[3672]: pam_unix(cron:session): session closed for user root
+Oct 25 11:37:41 web01 sshd[3471]: Accepted publickey for ubuntu from 10.0.2.40 port 48698 ssh2: ED25519 SHA256:k3yF1ngerPr1nt56
+Oct 25 11:37:42 web01 systemd-logind[3478]: New session 380 of user ubuntu.
+Oct 25 11:42:00 web01 sudo[3807]: pam_unix(sudo:auth): authentication failure; logname=bob uid=1001 euid=0 tty=/dev/pts/1 ruser=bob rhost=  user=bob
+Oct 25 11:44:07 web01 sshd[3431]: Accepted publickey for ubuntu from 10.0.2.40 port 46408 ssh2: ED25519 SHA256:k3yF1ngerPr1nt30
+Oct 25 11:44:08 web01 systemd-logind[3434]: New session 343 of user ubuntu.
+Oct 25 11:45:29 web01 sshd[3381]: Accepted publickey for bob from 10.0.1.34 port 61547 ssh2: ED25519 SHA256:k3yF1ngerPr1nt13
+Oct 25 11:45:30 web01 systemd-logind[3382]: New session 741 of user bob.
+Oct 25 12:00:01 web01 sshd[3011]: Accepted publickey for alice from 10.0.1.21 port 45215 ssh2: ED25519 SHA256:k3yF1ngerPr1nt51
+Oct 25 12:00:02 web01 systemd-logind[3017]: New session 618 of user alice.
+Oct 25 12:12:32 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/nginx/access.log
+Oct 25 12:16:28 web01 sshd[3460]: Accepted publickey for deploy from 10.0.2.15 port 62769 ssh2: ED25519 SHA256:k3yF1ngerPr1nt67
+Oct 25 12:16:29 web01 systemd-logind[3461]: New session 252 of user deploy.
+Oct 25 12:17:00 web01 CRON[3673]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 12:17:01 web01 CRON[3674]: pam_unix(cron:session): session closed for user root
+Oct 25 12:19:35 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/nginx/access.log
+Oct 25 12:20:47 web01 sshd[3140]: Accepted publickey for alice from 10.0.1.21 port 61603 ssh2: ED25519 SHA256:k3yF1ngerPr1nt31
+Oct 25 12:20:48 web01 systemd-logind[3147]: New session 219 of user alice.
+Oct 25 12:27:22 web01 sshd[3300]: Accepted publickey for ubuntu from 10.0.2.40 port 58613 ssh2: ED25519 SHA256:k3yF1ngerPr1nt23
+Oct 25 12:27:23 web01 systemd-logind[3301]: New session 500 of user ubuntu.
+Oct 25 12:37:26 web01 sshd[3323]: Accepted publickey for ubuntu from 10.0.2.40 port 56589 ssh2: ED25519 SHA256:k3yF1ngerPr1nt50
+Oct 25 12:37:27 web01 systemd-logind[3330]: New session 619 of user ubuntu.
+Oct 25 12:38:19 web01 sshd[3514]: Accepted publickey for alice from 10.0.1.21 port 52655 ssh2: ED25519 SHA256:k3yF1ngerPr1nt47
+Oct 25 12:38:20 web01 systemd-logind[3519]: New session 529 of user alice.
+Oct 25 12:53:19 web01 sshd[3344]: Accepted publickey for alice from 10.0.1.21 port 55628 ssh2: ED25519 SHA256:k3yF1ngerPr1nt77
+Oct 25 12:53:20 web01 systemd-logind[3346]: New session 943 of user alice.
+Oct 25 13:17:00 web01 CRON[3676]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 13:17:01 web01 CRON[3681]: pam_unix(cron:session): session closed for user root
+Oct 25 13:17:14 web01 sshd[3580]: Accepted publickey for bob from 10.0.1.34 port 58532 ssh2: ED25519 SHA256:k3yF1ngerPr1nt58
+Oct 25 13:17:15 web01 systemd-logind[3587]: New session 776 of user bob.
+Oct 25 13:18:56 web01 sshd[3029]: Accepted publickey for bob from 10.0.1.34 port 41323 ssh2: ED25519 SHA256:k3yF1ngerPr1nt38
+Oct 25 13:18:57 web01 systemd-logind[3032]: New session 555 of user bob.
+Oct 25 13:20:10 web01 sshd[3283]: Accepted publickey for ubuntu from 10.0.2.40 port 59055 ssh2: ED25519 SHA256:k3yF1ngerPr1nt31
+Oct 25 13:20:11 web01 systemd-logind[3285]: New session 536 of user ubuntu.
+Oct 25 13:29:00 web01 sshd[3464]: Accepted publickey for alice from 10.0.1.21 port 43720 ssh2: ED25519 SHA256:k3yF1ngerPr1nt70
+Oct 25 13:29:01 web01 systemd-logind[3466]: New session 175 of user alice.
+Oct 25 13:37:05 web01 sshd[3500]: Accepted publickey for alice from 10.0.1.21 port 50647 ssh2: ED25519 SHA256:k3yF1ngerPr1nt13
+Oct 25 13:37:06 web01 systemd-logind[3504]: New session 852 of user alice.
+Oct 25 13:43:13 web01 sshd[3589]: Accepted publickey for bob from 10.0.1.34 port 58442 ssh2: ED25519 SHA256:k3yF1ngerPr1nt12
+Oct 25 13:43:14 web01 systemd-logind[3591]: New session 802 of user bob.
+Oct 25 14:03:43 web01 sshd[3356]: Accepted publickey for alice from 10.0.1.21 port 61369 ssh2: ED25519 SHA256:k3yF1ngerPr1nt95
+Oct 25 14:03:44 web01 systemd-logind[3362]: New session 925 of user alice.
+Oct 25 14:08:17 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 25 14:17:00 web01 CRON[3688]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 14:17:01 web01 CRON[3690]: pam_unix(cron:session): session closed for user root
+Oct 25 14:28:39 web01 sshd[3368]: Accepted publickey for ubuntu from 10.0.2.40 port 52711 ssh2: ED25519 SHA256:k3yF1ngerPr1nt22
+Oct 25 14:28:40 web01 systemd-logind[3375]: New session 752 of user ubuntu.
+Oct 25 14:52:14 web01 sshd[3545]: Accepted publickey for ubuntu from 10.0.2.40 port 57659 ssh2: ED25519 SHA256:k3yF1ngerPr1nt87
+Oct 25 14:52:15 web01 systemd-logind[3548]: New session 788 of user ubuntu.
+Oct 25 14:52:47 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -f /var/log/nginx/access.log
+Oct 25 15:14:43 web01 sshd[3386]: Accepted publickey for ubuntu from 10.0.2.40 port 57517 ssh2: ED25519 SHA256:k3yF1ngerPr1nt37
+Oct 25 15:14:44 web01 systemd-logind[3388]: New session 697 of user ubuntu.
+Oct 25 15:17:00 web01 CRON[3693]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 15:17:01 web01 CRON[3696]: pam_unix(cron:session): session closed for user root
+Oct 25 15:19:49 web01 sshd[3238]: Accepted publickey for ubuntu from 10.0.2.40 port 61363 ssh2: ED25519 SHA256:k3yF1ngerPr1nt23
+Oct 25 15:19:50 web01 systemd-logind[3245]: New session 891 of user ubuntu.
+Oct 25 15:39:33 web01 sshd[3131]: Accepted publickey for deploy from 10.0.2.15 port 58692 ssh2: ED25519 SHA256:k3yF1ngerPr1nt69
+Oct 25 15:39:34 web01 systemd-logind[3138]: New session 917 of user deploy.
+Oct 25 16:05:28 web01 sshd[3407]: Accepted publickey for bob from 10.0.1.34 port 50912 ssh2: ED25519 SHA256:k3yF1ngerPr1nt97
+Oct 25 16:05:29 web01 systemd-logind[3413]: New session 144 of user bob.
+Oct 25 16:15:31 web01 sshd[3081]: Accepted publickey for deploy from 10.0.2.15 port 53328 ssh2: ED25519 SHA256:k3yF1ngerPr1nt66
+Oct 25 16:15:32 web01 systemd-logind[3085]: New session 555 of user deploy.
+Oct 25 16:17:00 web01 CRON[3701]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 16:17:01 web01 CRON[3702]: pam_unix(cron:session): session closed for user root
+Oct 25 16:29:45 web01 sshd[3560]: Accepted publickey for bob from 10.0.1.34 port 63696 ssh2: ED25519 SHA256:k3yF1ngerPr1nt86
+Oct 25 16:29:46 web01 systemd-logind[3566]: New session 369 of user bob.
+Oct 25 16:30:34 web01 sshd[3193]: Accepted publickey for ubuntu from 10.0.2.40 port 59477 ssh2: ED25519 SHA256:k3yF1ngerPr1nt26
+Oct 25 16:30:35 web01 systemd-logind[3199]: New session 207 of user ubuntu.
+Oct 25 16:44:42 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 25 16:49:03 web01 sshd[3443]: Accepted publickey for deploy from 10.0.2.15 port 62609 ssh2: ED25519 SHA256:k3yF1ngerPr1nt16
+Oct 25 16:49:04 web01 systemd-logind[3445]: New session 243 of user deploy.
+Oct 25 16:50:47 web01 sshd[3007]: Accepted publickey for bob from 10.0.1.34 port 51931 ssh2: ED25519 SHA256:k3yF1ngerPr1nt15
+Oct 25 16:50:48 web01 systemd-logind[3008]: New session 209 of user bob.
+Oct 25 16:51:16 web01 sshd[3071]: Accepted publickey for deploy from 10.0.2.15 port 45932 ssh2: ED25519 SHA256:k3yF1ngerPr1nt15
+Oct 25 16:51:17 web01 systemd-logind[3078]: New session 854 of user deploy.
+Oct 25 17:17:00 web01 CRON[3706]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 17:17:01 web01 CRON[3710]: pam_unix(cron:session): session closed for user root
+Oct 25 17:24:29 web01 sshd[3315]: Accepted publickey for deploy from 10.0.2.15 port 60867 ssh2: ED25519 SHA256:k3yF1ngerPr1nt82
+Oct 25 17:24:30 web01 systemd-logind[3319]: New session 155 of user deploy.
+Oct 25 17:39:19 web01 sshd[3291]: Accepted publickey for ubuntu from 10.0.2.40 port 51251 ssh2: ED25519 SHA256:k3yF1ngerPr1nt46
+Oct 25 17:39:20 web01 systemd-logind[3294]: New session 337 of user ubuntu.
+Oct 25 18:03:48 web01 sshd[3492]: Accepted publickey for bob from 10.0.1.34 port 59564 ssh2: ED25519 SHA256:k3yF1ngerPr1nt21
+Oct 25 18:03:49 web01 systemd-logind[3496]: New session 251 of user bob.
+Oct 25 18:13:55 web01 sshd[3334]: Accepted publickey for bob from 10.0.1.34 port 56281 ssh2: ED25519 SHA256:k3yF1ngerPr1nt52
+Oct 25 18:13:56 web01 systemd-logind[3341]: New session 781 of user bob.
+Oct 25 18:17:00 web01 CRON[3715]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 18:17:01 web01 CRON[3719]: pam_unix(cron:session): session closed for user root
+Oct 25 18:19:40 web01 sshd[3353]: Accepted publickey for deploy from 10.0.2.15 port 41276 ssh2: ED25519 SHA256:k3yF1ngerPr1nt72
+Oct 25 18:19:41 web01 systemd-logind[3355]: New session 810 of user deploy.
+Oct 25 18:40:08 web01 sshd[3206]: Accepted publickey for deploy from 10.0.2.15 port 52908 ssh2: ED25519 SHA256:k3yF1ngerPr1nt16
+Oct 25 18:40:09 web01 systemd-logind[3213]: New session 976 of user deploy.
+Oct 25 18:47:20 web01 sshd[3062]: Accepted publickey for deploy from 10.0.2.15 port 50763 ssh2: ED25519 SHA256:k3yF1ngerPr1nt98
+Oct 25 18:47:21 web01 systemd-logind[3068]: New session 402 of user deploy.
+Oct 25 18:51:17 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 25 18:51:54 web01 sshd[3044]: Accepted publickey for alice from 10.0.1.21 port 64878 ssh2: ED25519 SHA256:k3yF1ngerPr1nt85
+Oct 25 18:51:55 web01 systemd-logind[3051]: New session 220 of user alice.
+Oct 25 19:17:00 web01 CRON[3721]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 19:17:01 web01 CRON[3722]: pam_unix(cron:session): session closed for user root
+Oct 25 19:33:48 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 25 19:36:41 web01 sshd[3183]: Accepted publickey for alice from 10.0.1.21 port 48074 ssh2: ED25519 SHA256:k3yF1ngerPr1nt83
+Oct 25 19:36:42 web01 systemd-logind[3189]: New session 873 of user alice.
+Oct 25 19:52:33 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Oct 25 20:07:32 web01 sshd[3249]: Accepted publickey for deploy from 10.0.2.15 port 47695 ssh2: ED25519 SHA256:k3yF1ngerPr1nt83
+Oct 25 20:07:33 web01 systemd-logind[3255]: New session 505 of user deploy.
+Oct 25 20:13:58 web01 sshd[3269]: Accepted publickey for deploy from 10.0.2.15 port 49066 ssh2: ED25519 SHA256:k3yF1ngerPr1nt50
+Oct 25 20:13:59 web01 systemd-logind[3275]: New session 800 of user deploy.
+Oct 25 20:17:00 web01 CRON[3726]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 20:17:01 web01 CRON[3728]: pam_unix(cron:session): session closed for user root
+Oct 25 20:32:56 web01 sshd[3485]: Accepted publickey for ubuntu from 10.0.2.40 port 52832 ssh2: ED25519 SHA256:k3yF1ngerPr1nt24
+Oct 25 20:32:57 web01 systemd-logind[3486]: New session 263 of user ubuntu.
+Oct 25 20:33:46 web01 sshd[3276]: Accepted publickey for deploy from 10.0.2.15 port 50148 ssh2: ED25519 SHA256:k3yF1ngerPr1nt45
+Oct 25 20:33:47 web01 systemd-logind[3277]: New session 970 of user deploy.
+Oct 25 20:43:29 web01 sshd[3439]: Accepted publickey for deploy from 10.0.2.15 port 43895 ssh2: ED25519 SHA256:k3yF1ngerPr1nt46
+Oct 25 20:43:30 web01 systemd-logind[3441]: New session 561 of user deploy.
+Oct 25 20:46:07 web01 sshd[3528]: Accepted publickey for deploy from 10.0.2.15 port 51144 ssh2: ED25519 SHA256:k3yF1ngerPr1nt84
+Oct 25 20:46:08 web01 systemd-logind[3530]: New session 152 of user deploy.
+Oct 25 21:00:00 web01 sshd[4547]: Failed password for bob from 192.0.2.10 port 55062 ssh2
+Oct 25 21:00:55 web01 sshd[4549]: Failed password for bob from 192.0.2.10 port 40398 ssh2
+Oct 25 21:01:50 web01 sshd[4555]: Failed password for bob from 192.0.2.11 port 44462 ssh2
+Oct 25 21:02:45 web01 sshd[4556]: Failed password for bob from 192.0.2.11 port 49371 ssh2
+Oct 25 21:03:40 web01 sshd[4557]: Failed password for bob from 192.0.2.12 port 33184 ssh2
+Oct 25 21:04:35 web01 sshd[4563]: Failed password for bob from 192.0.2.12 port 32966 ssh2
+Oct 25 21:05:30 web01 sshd[4569]: Failed password for bob from 192.0.2.13 port 31859 ssh2
+Oct 25 21:06:25 web01 sshd[4572]: Failed password for bob from 192.0.2.13 port 46976 ssh2
+Oct 25 21:07:50 web01 sshd[4578]: Accepted password for bob from 192.0.2.44 port 56236 ssh2
+Oct 25 21:17:00 web01 CRON[3734]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 21:17:01 web01 CRON[3735]: pam_unix(cron:session): session closed for user root
+Oct 25 22:17:00 web01 CRON[3740]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 22:17:01 web01 CRON[3746]: pam_unix(cron:session): session closed for user root
+Oct 25 23:17:00 web01 CRON[3748]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 25 23:17:01 web01 CRON[3754]: pam_unix(cron:session): session closed for user root

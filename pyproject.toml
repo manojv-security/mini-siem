@@ -1,0 +1,16 @@
+[project]
+name = "mini-siem"
+version = "1.0.0"
+description = "Security log monitoring and threat detection system (SIEM prototype) built with Flask, SQLite and Pandas"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["Flask>=3.0,<4", "pandas>=2.1", "python-dateutil>=2.8", "tzdata>=2024.1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+addopts = "-ra"

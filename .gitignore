@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Runtime data (database, secret key, tuned thresholds stay local)
+instance/*
+!instance/.gitkeep
+
+# Locally downloaded frontend libraries (python scripts/vendor_assets.py)
+siem/static/vendor/*
+!siem/static/vendor/.gitkeep
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

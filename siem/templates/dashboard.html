@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+  <div>
+    <h1 class="h3 mb-1">Security overview</h1>
+    <p class="text-body-secondary mb-0" id="data-range">Loading…</p>
+  </div>
+  <div class="d-flex gap-2">
+    <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('ui.upload') }}">Ingest logs</a>
+    <a class="btn btn-sm btn-primary" href="{{ url_for('ui.alerts') }}">Triage alerts</a>
+  </div>
+</div>
+
+<div id="empty-state" class="card siem-card mb-4 d-none">
+  <div class="card-body py-5 text-center">
+    <h2 class="h5">No events yet</h2>
+    <p class="text-body-secondary">Upload your own logs, or load the bundled sample data with eight built-in attack scenarios.</p>
+    <form method="post" action="{{ url_for('ui.load_samples') }}" class="d-inline">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button class="btn btn-primary" type="submit">Load sample data</button>
+    </form>
+    <a class="btn btn-outline-secondary ms-2" href="{{ url_for('ui.upload') }}">Upload logs</a>
+  </div>
+</div>
+
+<div class="row g-3 mb-4" id="kpis">
+  {% for key, label in [('total_events','Events'), ('unique_ips','Source IPs'), ('auth_failures','Failed logins'),
+                        ('web_requests','Web requests'), ('open_alerts','Open alerts'), ('open_critical_high','Open critical / high')] %}
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card siem-card kpi h-100 {% if key == 'open_critical_high' %}kpi-danger{% endif %}">
+      <div class="card-body">
+        <div class="kpi-label">{{ label }}</div>
+        <div class="kpi-value" data-kpi="{{ key }}">–</div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div id="chart-warning" class="alert alert-secondary d-none">
+  Charts need Chart.js. You appear to be offline: run <code>python scripts/vendor_assets.py</code> once while online
+  to store the libraries locally.
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-xl-8">
+    <div class="card siem-card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <span>Activity over time</span><span class="text-body-secondary small" id="bucket-label"></span>
+      </div>
+      <div class="card-body"><div class="chart-box chart-tall"><canvas id="chart-timeline" aria-label="Events over time"></canvas></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card siem-card h-100">
+      <div class="card-header">Alerts by severity</div>
+      <div class="card-body"><div class="chart-box chart-tall"><canvas id="chart-severity" aria-label="Alerts by severity"></canvas></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card siem-card h-100">
+      <div class="card-header">Alerts by detection rule</div>
+      <div class="card-body"><div class="chart-box"><canvas id="chart-rules" aria-label="Alerts by rule"></canvas></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card siem-card h-100">
+      <div class="card-header">HTTP status codes</div>
+      <div class="card-body"><div class="chart-box"><canvas id="chart-http" aria-label="HTTP status codes"></canvas></div></div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xl-4">
+    <div class="card siem-card h-100">
+      <div class="card-header">Event types</div>
+      <div class="card-body"><div class="chart-box"><canvas id="chart-types" aria-label="Event types"></canvas></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-xl-6">
+    <div class="card siem-card h-100">
+      <div class="card-header">Top source IPs</div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover mb-0 align-middle">
+          <thead><tr><th>IP</th><th class="text-end">Events</th><th class="text-end">Failed logins</th>
+            <th class="text-end">HTTP errors</th><th class="text-end">Alerts</th></tr></thead>
+          <tbody id="top-ips"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card siem-card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <span>Latest alerts</span><a class="small" href="{{ url_for('ui.alerts') }}">All alerts</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover mb-0 align-middle">
+          <thead><tr><th>Severity</th><th>Alert</th><th>Last seen (UTC)</th><th>Status</th></tr></thead>
+          <tbody id="recent-alerts"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ asset_url('chart_js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"
+        data-stats-url="{{ url_for('api.api_stats') }}"
+        data-alert-url="{{ url_for('ui.alerts') }}"
+        data-events-url="{{ url_for('ui.events') }}"></script>
+{% endblock %}

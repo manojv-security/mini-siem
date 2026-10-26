@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}Ingest logs{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">Ingest logs</h1>
+
+{% if results %}
+<div class="card siem-card mb-4">
+  <div class="card-header">Import results</div>
+  <div class="table-responsive">
+    <table class="table table-sm mb-0 align-middle">
+      <thead><tr><th>File</th><th>Detected format</th><th class="text-end">Records</th><th class="text-end">Processed</th>
+        <th class="text-end">Rejected</th><th class="text-end">Duplicates</th><th>Notes</th></tr></thead>
+      <tbody>
+      {% for r in results %}
+        {% if r.ok %}
+        <tr>
+          <td class="mono">{{ r.filename }}</td>
+          <td>{{ formats.get(r.source_type, r.source_type) }}</td>
+          <td class="text-end">{{ r.total }}</td>
+          <td class="text-end text-success fw-semibold">{{ r.processed }}</td>
+          <td class="text-end {% if r.rejected %}text-danger fw-semibold{% endif %}">{{ r.rejected }}</td>
+          <td class="text-end {% if r.duplicates %}text-warning fw-semibold{% endif %}">{{ r.duplicates }}</td>
+          <td class="small">
+            {% for reason, count in r.reasons.items() %}<div>{{ count }} × {{ reason }}</div>{% endfor %}
+            {% if r.missing_ip %}<div class="text-body-secondary">{{ r.missing_ip }} event(s) without a source IP (kept)</div>{% endif %}
+            {% if r.samples %}
+            <details class="mt-1"><summary>Rejected samples</summary>
+              {% for s in r.samples %}<div class="mono small text-break">{% if s.line %}line {{ s.line }}: {% endif %}{{ s.raw }}</div>{% endfor %}
+            </details>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr class="table-danger"><td class="mono">{{ r.filename }}</td><td colspan="6">Refused: {{ r.error }}</td></tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if detection %}
+  <div class="card-footer small">
+    Detection ran over {{ detection.events_analyzed }} events in {{ detection.duration_ms }} ms:
+    <strong>{{ detection.new_alerts }}</strong> new, {{ detection.updated_alerts }} updated,
+    {{ detection.unchanged_alerts }} unchanged alert(s).
+    {% if detection.errors %}<span class="text-danger">Rule errors: {{ detection.errors }}</span>{% endif %}
+    <a href="{{ url_for('ui.alerts') }}" class="ms-2">View alerts</a>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="row g-4">
+  <div class="col-lg-7">
+    <div class="card siem-card h-100">
+      <div class="card-header">Upload log files</div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('ui.upload_post') }}" enctype="multipart/form-data" data-busy="Processing…">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <div class="mb-3">
+            <label class="form-label" for="logfiles">Files (.log, .txt, .csv — several at once is fine)</label>
+            <input class="form-control" type="file" id="logfiles" name="logfiles" multiple required
+                   accept=".log,.txt,.csv,.1,.2">
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label" for="format">Log format</label>
+              <select class="form-select" id="format" name="format">
+                {% for value, label in formats.items() %}<option value="{{ value }}">{{ label }}</option>{% endfor %}
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="timezone">Time zone of timestamps without an offset</label>
+              <input class="form-control" id="timezone" name="timezone" list="tz-list" value="{{ default_tz }}">
+              <datalist id="tz-list">{% for tz in timezones %}<option value="{{ tz }}">{% endfor %}</datalist>
+              <div class="form-text">auth.log has no zone; use your server's (e.g. Asia/Kolkata). Stored as UTC.</div>
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="run_detection" name="run_detection" checked>
+            <label class="form-check-label" for="run_detection">Run detection after import</label>
+          </div>
+          <button class="btn btn-primary" type="submit">Upload and analyse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="card siem-card mb-4">
+      <div class="card-header">Sample data</div>
+      <div class="card-body">
+        <p class="small text-body-secondary">Synthetic logs ({{ sample_files | join(', ') }}) with brute force, password
+          spraying, a compromised account, Nikto and sqlmap scans, an HTTP flood and an RDP attack, plus malformed lines.
+          Loading them twice shows the duplicate counter at work.</p>
+        <form method="post" action="{{ url_for('ui.load_samples') }}" data-busy="Loading…">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <button class="btn btn-outline-primary" type="submit">Load sample data</button>
+        </form>
+      </div>
+    </div>
+    <div class="card siem-card border-danger-subtle">
+      <div class="card-header text-danger">Reset</div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('ui.reset') }}" class="d-flex gap-2"
+              data-confirm="Delete all events, alerts and history?">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <input class="form-control form-control-sm" name="confirm" placeholder="Type DELETE" aria-label="Type DELETE to confirm">
+          <button class="btn btn-sm btn-outline-danger text-nowrap" type="submit">Clear all data</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card siem-card mt-4">
+  <div class="card-header">Recent imports</div>
+  <div class="table-responsive">
+    <table class="table table-sm mb-0">
+      <thead><tr><th>#</th><th>File</th><th>Format</th><th>Uploaded (UTC)</th><th class="text-end">Records</th>
+        <th class="text-end">Processed</th><th class="text-end">Rejected</th><th class="text-end">Duplicates</th></tr></thead>
+      <tbody>
+      {% for run in runs %}
+        <tr>
+          <td>{{ run.id }}</td><td class="mono">{{ run.filename }}</td><td>{{ run.source_type }}</td>
+          <td class="mono small">{{ run.uploaded_at }}</td><td class="text-end">{{ run.total_records }}</td>
+          <td class="text-end">{{ run.processed }}</td><td class="text-end">{{ run.rejected }}</td>
+          <td class="text-end">{{ run.duplicates }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="8" class="text-body-secondary text-center py-3">Nothing imported yet.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

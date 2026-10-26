@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}Events{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-end mb-3">
+  <h1 class="h3 mb-0">Events <span class="text-body-secondary fs-6">{{ "{:,}".format(total) }} matching</span></h1>
+  <a href="{{ url_for('ui.events') }}" class="btn btn-sm btn-outline-secondary">Clear filters</a>
+</div>
+
+<form class="card siem-card mb-3" method="get" action="{{ url_for('ui.events') }}">
+  <div class="card-body row g-2 align-items-end">
+    <div class="col-6 col-md-3 col-xl-2">
+      <label class="form-label small" for="f-ip">Source IP</label>
+      <input class="form-control form-control-sm mono" id="f-ip" name="source_ip" value="{{ filters.source_ip }}">
+    </div>
+    <div class="col-6 col-md-3 col-xl-2">
+      <label class="form-label small" for="f-user">Username</label>
+      <input class="form-control form-control-sm" id="f-user" name="username" value="{{ filters.username }}">
+    </div>
+    <div class="col-6 col-md-3 col-xl-2">
+      <label class="form-label small" for="f-type">Event type</label>
+      <select class="form-select form-select-sm" id="f-type" name="event_type">
+        <option value="">Any</option>
+        {% for t in event_types %}<option value="{{ t }}" {% if filters.event_type == t %}selected{% endif %}>{{ t }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-3 col-xl-1">
+      <label class="form-label small" for="f-status">Status</label>
+      <input class="form-control form-control-sm" id="f-status" name="status" value="{{ filters.status }}" placeholder="404, failure…">
+    </div>
+    <div class="col-6 col-md-3 col-xl-1">
+      <label class="form-label small" for="f-src">Source</label>
+      <select class="form-select form-select-sm" id="f-src" name="source_type">
+        <option value="">Any</option>
+        {% for t in source_types %}<option value="{{ t }}" {% if filters.source_type == t %}selected{% endif %}>{{ t }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-6 col-md-3 col-xl-2">
+      <label class="form-label small" for="f-start">From (UTC)</label>
+      <input class="form-control form-control-sm" type="datetime-local" id="f-start" name="start"
+             value="{{ request.args.get('start', '') }}">
+    </div>
+    <div class="col-6 col-md-3 col-xl-2">
+      <label class="form-label small" for="f-end">To (UTC)</label>
+      <input class="form-control form-control-sm" type="datetime-local" id="f-end" name="end"
+             value="{{ request.args.get('end', '') }}">
+    </div>
+    <div class="col-md-9 col-xl-10">
+      <label class="form-label small" for="f-q">Search raw log text</label>
+      <input class="form-control form-control-sm" id="f-q" name="q" value="{{ filters.q }}" placeholder="e.g. wp-login, sqlmap, invalid user">
+    </div>
+    <div class="col-md-3 col-xl-2 d-grid">
+      <button class="btn btn-sm btn-primary" type="submit">Filter</button>
+    </div>
+  </div>
+</form>
+
+<div class="card siem-card">
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0 align-middle events-table">
+      <thead><tr><th>Time (UTC)</th><th>Source IP</th><th>User</th><th>Type</th><th>Status</th>
+        <th>Request / detail</th><th>User agent</th><th>Source</th></tr></thead>
+      <tbody>
+      {% for e in rows %}
+        <tr>
+          <td class="mono small text-nowrap">{{ e.timestamp }}</td>
+          <td class="mono small">{% if e.source_ip %}<a href="{{ url_for('ui.events', source_ip=e.source_ip) }}">{{ e.source_ip }}</a>{% else %}–{% endif %}</td>
+          <td class="small">{{ e.username or '–' }}</td>
+          <td><span class="badge type-badge type-{{ e.event_type }}">{{ e.event_type }}</span></td>
+          <td class="small">{{ e.status or '–' }}</td>
+          <td class="small text-break">
+            {% if e.request_path %}<span class="text-body-secondary">{{ e.http_method or '' }}</span> <span class="mono">{{ e.request_path | truncate(80) }}</span>
+            {% else %}<span class="text-body-secondary">{{ e.process or '' }}</span>{% endif %}
+            <details><summary class="small text-body-secondary">raw</summary><div class="mono small raw-log">{{ e.raw_log }}</div></details>
+          </td>
+          <td class="small ua-cell" title="{{ e.user_agent or '' }}">{{ (e.user_agent or '–') | truncate(40) }}</td>
+          <td class="small">{{ e.source_type }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="8" class="text-center text-body-secondary py-4">No events match these filters.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if pages > 1 %}
+  <div class="card-footer d-flex justify-content-between align-items-center small">
+    <span>Page {{ page }} of {{ pages }}</span>
+    <nav aria-label="Event pages"><ul class="pagination pagination-sm mb-0">
+      <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('ui.events', page=page - 1, **query_args) }}">Previous</a></li>
+      <li class="page-item {% if page >= pages %}disabled{% endif %}">
+        <a class="page-link" href="{{ url_for('ui.events', page=page + 1, **query_args) }}">Next</a></li>
+    </ul></nav>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

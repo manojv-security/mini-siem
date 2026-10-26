@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Detection rules{% endblock %}
+{% macro field(prefix, param, value) %}
+  {% set name = prefix ~ '__' ~ param.name %}
+  {% if param.kind == 'bool' %}
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="{{ name }}" name="{{ name }}" {% if value %}checked{% endif %}>
+      <label class="form-check-label" for="{{ name }}">{{ param.label }}</label>
+    </div>
+  {% elif param.kind in ('severity', 'choice') %}
+    <label class="form-label small" for="{{ name }}">{{ param.label }}</label>
+    <select class="form-select form-select-sm" id="{{ name }}" name="{{ name }}">
+      {% for c in param.choices %}<option value="{{ c }}" {% if c == value %}selected{% endif %}>{{ c }}</option>{% endfor %}
+    </select>
+  {% elif param.kind in ('str_list', 'int_list', 'pattern_map') %}
+    <label class="form-label small" for="{{ name }}">{{ param.label }}</label>
+    <textarea class="form-control form-control-sm mono" id="{{ name }}" name="{{ name }}"
+              rows="{{ 6 if param.kind != 'int_list' else 3 }}">{{ form_value(param, value) }}</textarea>
+  {% else %}
+    <label class="form-label small" for="{{ name }}">{{ param.label }}</label>
+    <input class="form-control form-control-sm" type="number" id="{{ name }}" name="{{ name }}" value="{{ value }}"
+           {% if param.minimum is not none %}min="{{ param.minimum }}"{% endif %}
+           {% if param.maximum is not none %}max="{{ param.maximum }}"{% endif %}
+           step="{{ 'any' if param.kind == 'float' else 1 }}" required>
+  {% endif %}
+  {% if param.help %}<div class="form-text">{{ param.help }}</div>{% endif %}
+{% endmacro %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+  <div>
+    <h1 class="h3 mb-1">Detection rules</h1>
+    <p class="text-body-secondary mb-0">Thresholds are saved to <code>instance/rules.json</code>. Rules use event timestamps, so log order does not matter.</p>
+  </div>
+  <form method="post" action="{{ url_for('ui.rules_reset') }}" data-confirm="Reset every rule to its default thresholds?">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button class="btn btn-sm btn-outline-secondary" type="submit">Reset to defaults</button>
+  </form>
+</div>
+
+{% if errors %}
+<div class="alert alert-danger"><strong>Settings not saved:</strong>
+  <ul class="mb-0">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>
+{% endif %}
+
+<form method="post" action="{{ url_for('ui.rules_post') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <input type="hidden" name="rerun" id="rerun-field" value="0">
+
+  <div class="card siem-card mb-3">
+    <div class="card-header">Global settings</div>
+    <div class="card-body row">
+      {% for param in global_params %}
+      <div class="col-md-6">{{ field('global', param, config['global'][param.name]) }}</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% for rule in rules %}
+  {% set cfg = config['rules'][rule.id] %}
+  <div class="card siem-card mb-3" id="rule-{{ rule.id }}">
+    <div class="card-header d-flex flex-wrap align-items-center gap-3">
+      <span class="rule-number">{{ loop.index }}</span>
+      <div class="flex-grow-1">
+        <div class="fw-semibold">{{ rule.name }}</div>
+        <div class="small text-body-secondary">{{ rule.summary }} · {{ rule.mitre_technique }}</div>
+      </div>
+      <div class="rule-toggle">{{ field(rule.id, rule.all_params()[0], cfg['enabled']) }}</div>
+    </div>
+    <div class="card-body">
+      <div class="row g-4">
+        <div class="col-lg-5 small">
+          <p class="mb-2"><span class="fw-semibold">How it works.</span> {{ rule.how_it_works }}</p>
+          <p class="mb-2"><span class="fw-semibold">False positives.</span> {{ rule.false_positives }}</p>
+          <p class="mb-0"><span class="fw-semibold">Response.</span> {{ rule.recommendation }}</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-4">{{ field(rule.id, rule.all_params()[1], cfg['severity']) }}</div>
+            {% for param in rule.params %}
+            <div class="{{ 'col-12' if param.kind in ('str_list', 'pattern_map') else 'col-sm-6 col-xl-4' }}">
+              {{ field(rule.id, param, cfg[param.name]) }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="sticky-actions d-flex gap-2 py-3">
+    <button class="btn btn-primary" type="submit">Save settings</button>
+    <button class="btn btn-outline-primary" type="submit" data-rerun>Save and re-run detection</button>
+  </div>
+</form>
+{% endblock %}

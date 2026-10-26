@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Alert #{{ alert.id }}{% endblock %}
+{% block content %}
+<nav aria-label="breadcrumb"><ol class="breadcrumb small">
+  <li class="breadcrumb-item"><a href="{{ url_for('ui.alerts') }}">Alerts</a></li>
+  <li class="breadcrumb-item active" aria-current="page">#{{ alert.id }}</li>
+</ol></nav>
+
+<div class="d-flex flex-wrap align-items-start gap-3 mb-3">
+  <span class="badge sev-badge sev-lg text-bg-{{ alert.severity | sev_class }}">{{ alert.severity }}</span>
+  <div class="flex-grow-1">
+    <h1 class="h4 mb-1">{{ alert.title }}</h1>
+    <div class="text-body-secondary">{{ alert.rule_name }} · {{ alert.mitre_tactic }} · {{ alert.mitre_technique }}</div>
+  </div>
+  <span class="badge status-badge status-{{ alert.status }} fs-6">{{ status_labels[alert.status] }}</span>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-8">
+    <div class="card siem-card mb-4">
+      <div class="card-header">What happened</div>
+      <div class="card-body">
+        <p>{{ alert.description }}</p>
+        <dl class="row small mb-0">
+          <dt class="col-sm-3">Source IP</dt>
+          <dd class="col-sm-9 mono">{% if alert.source_ip %}<a href="{{ url_for('ui.events', source_ip=alert.source_ip) }}">{{ alert.source_ip }}</a>{% else %}–{% endif %}</dd>
+          <dt class="col-sm-3">Username</dt>
+          <dd class="col-sm-9">{% if alert.username %}<a href="{{ url_for('ui.events', username=alert.username) }}">{{ alert.username }}</a>{% else %}–{% endif %}</dd>
+          <dt class="col-sm-3">Time range (UTC)</dt><dd class="col-sm-9 mono">{{ alert.first_seen }} → {{ alert.last_seen }}</dd>
+          <dt class="col-sm-3">Events</dt><dd class="col-sm-9">{{ alert.event_count }}</dd>
+          {% for key, value in alert.details.items() %}
+          <dt class="col-sm-3">{{ key | replace('_', ' ') | capitalize }}</dt>
+          <dd class="col-sm-9">
+            {% if value is mapping %}
+              {% for k, v in value.items() %}<span class="badge kv-badge mono">{{ k }} <b>{{ v }}</b></span> {% else %}–{% endfor %}
+            {% elif value is iterable and value is not string %}
+              {% for v in value %}<span class="badge kv-badge mono">{{ v }}</span> {% else %}–{% endfor %}
+            {% else %}{{ value }}{% endif %}
+          </dd>
+          {% endfor %}
+        </dl>
+      </div>
+    </div>
+
+    <div class="card siem-card">
+      <div class="card-header d-flex justify-content-between">
+        <span>Evidence ({{ evidence | length }} of {{ alert.event_count }} events)</span>
+        {% if alert.source_ip %}<a class="small" href="{{ url_for('ui.events', source_ip=alert.source_ip) }}">All events from this IP</a>{% endif %}
+      </div>
+      <div class="table-responsive evidence-scroll">
+        <table class="table table-sm mb-0">
+          <thead><tr><th>Time (UTC)</th><th>IP</th><th>User</th><th>Type</th><th>Raw log</th></tr></thead>
+          <tbody>
+          {% for e in evidence %}
+            <tr>
+              <td class="mono small text-nowrap">{{ e.timestamp }}</td>
+              <td class="mono small">{{ e.source_ip or '–' }}</td>
+              <td class="small">{{ e.username or '–' }}</td>
+              <td class="small">{{ e.event_type }}</td>
+              <td class="mono small text-break raw-log">{{ e.raw_log }}</td>
+            </tr>
+          {% else %}
+            <tr><td colspan="5" class="text-body-secondary">No evidence events stored (they may have been cleared).</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4">
+    <div class="card siem-card mb-4">
+      <div class="card-header">Triage</div>
+      <div class="card-body">
+        <form method="post" action="{{ url_for('ui.alert_update', alert_id=alert.id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+          <label class="form-label" for="status">Status</label>
+          <select class="form-select mb-3" id="status" name="status">
+            {% for s in statuses %}<option value="{{ s }}" {% if alert.status == s %}selected{% endif %}>{{ status_labels[s] }}</option>{% endfor %}
+          </select>
+          <label class="form-label" for="analyst_notes">Analyst notes</label>
+          <textarea class="form-control mb-3" id="analyst_notes" name="analyst_notes" rows="5"
+                    placeholder="Findings, actions taken, ticket number…">{{ alert.analyst_notes or '' }}</textarea>
+          <button class="btn btn-primary" type="submit">Save</button>
+        </form>
+        <div class="small text-body-secondary mt-3">Created {{ alert.created_at }} · updated {{ alert.updated_at }} UTC</div>
+      </div>
+    </div>
+
+    <div class="card siem-card mb-4">
+      <div class="card-header">Recommended response</div>
+      <div class="card-body small">
+        <p>{{ alert.recommendation }}</p>
+        {% if rule %}
+        <p class="mb-1 fw-semibold">How this rule works</p><p>{{ rule.how_it_works }}</p>
+        <p class="mb-1 fw-semibold">Common false positives</p><p class="mb-0">{{ rule.false_positives }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if related %}
+    <div class="card siem-card">
+      <div class="card-header">Other alerts for {{ alert.source_ip }}</div>
+      <ul class="list-group list-group-flush">
+        {% for r in related %}
+        <li class="list-group-item small d-flex gap-2 align-items-center">
+          <span class="badge sev-badge text-bg-{{ r.severity | sev_class }}">{{ r.severity }}</span>
+          <a href="{{ url_for('ui.alert_detail', alert_id=r.id) }}">{{ r.rule_name }}</a>
+          <span class="ms-auto mono text-body-secondary">{{ r.first_seen[11:16] }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

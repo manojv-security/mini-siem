@@ -1,0 +1,8 @@
+# Runtime
+Flask>=3.0,<4
+pandas>=2.1
+python-dateutil>=2.8
+tzdata>=2024.1        # time-zone database for Windows (Linux already ships one)
+
+# Testing
+pytest>=8.0

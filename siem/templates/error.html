@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Error {{ code }}{% endblock %}
+{% block content %}
+<div class="card siem-card mx-auto error-card">
+  <div class="card-body text-center py-5">
+    <div class="display-6 mb-2">{{ code }}</div>
+    <p class="text-body-secondary">{{ message }}</p>
+    <a class="btn btn-primary" href="{{ url_for('ui.dashboard') }}">Back to dashboard</a>
+  </div>
+</div>
+{% endblock %}
